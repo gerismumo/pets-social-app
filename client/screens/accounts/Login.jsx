@@ -2,11 +2,32 @@ import React, {useState} from 'react'
 import { View, Text, StyleSheet, SafeAreaView, TextInput, Button, TouchableHighlight,TouchableOpacity, Image } from 'react-native';
 import Checkbox from 'expo-checkbox';
 import colors from '../../services/colors';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../../feactures/loginSlice';
 
 const Login = () => {
+    const dispatch = useDispatch();
     const [isChecked, setChecked] = useState(false);
     const [userDetail, setUserDetail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+
+
+    const handleSubmitLogin = () => {
+        if(userDetail === '' || password === '') {
+           return setError('fill all the details');
+        }
+       
+
+        const data ={
+            userDetail,
+            password
+        }
+
+        dispatch(loginUser(data));
+
+    }
+
 
   return (
         <View style={styles.container}>
@@ -18,30 +39,43 @@ const Login = () => {
                     <View style={styles.formHeading}>
                         <Text style={styles.formHeadingText}>Login to your Account</Text>
                     </View>
+                    {error !== '' && (
+                        <View style={styles.error}>
+                            <Text style={styles.errorText}>{error}</Text>
+                        </View>
+                    )}
                     <View style={styles.normalLogin}>
                         <View style={styles.formInputs}>
                             <TextInput 
+                            onChangeText={text => {
+                                setUserDetail(text);
+                                if(text !== '' && password !== '') {
+                                    setError('')
+                                }
+                            }}
+                            value={userDetail}
                             style={styles.input}
                             placeholder='email or phone number'
                             />
                             <TextInput 
+                            onChangeText={text => {
+                                setPassword(text);
+                                if(text !== '' && password !== '') {
+                                    setError('');
+                                }
+                            }}
+                            value={password}
                             style={styles.input}
                             placeholder='password'
                             />
                         </View>
                         <View style={styles.forgot}>
-                            {/* <Checkbox
-                            style={styles.checkbox}
-                            value={isChecked}
-                            onValueChange={setChecked}
-                            color={isChecked ? '#387ADF' : undefined}
-                            /> */}
                             <Text style={styles.forgotText}>Forgot password?</Text>
                         </View>
                         <View>
-                            <TouchableHighlight style={styles.loginBtn}
-                            underlayColor='#FF8080'
-                            onPress={() => alert('Pressed!')}
+                            <TouchableHighlight  style={styles.loginBtn}
+                            underlayColor={colors.secondary}
+                            onPress={() => handleSubmitLogin()}
                             >
                                 <Text style={styles.loginText}>Login</Text>
                             </TouchableHighlight>
@@ -103,16 +137,24 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         width: '100%',
         justifyContent: 'flex-start',
-        gap: 15,
+        gap: 10,
     },
     formHeading: {
         flexDirection: 'column',
         justifyContent: 'flex-start',
+        gap: 15,
     },
     formHeadingText: {
         fontSize: 20,
         fontWeight: '600',
-
+    },
+    error: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    errorText:{
+        color: 'red'
     },
     normalLogin: {
         gap: 20,
