@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
-import { View, Text, StyleSheet, SafeAreaView, TextInput, Button, TouchableHighlight,TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, TextInput, Button, TouchableHighlight,TouchableOpacity, Image } from 'react-native';
 import Checkbox from 'expo-checkbox';
+import colors from '../../services/colors';
 
 const Login = () => {
     const [isChecked, setChecked] = useState(false);
@@ -11,37 +12,59 @@ const Login = () => {
         <View style={styles.container}>
             <View style={styles.login}>
                 <View style={styles.frontText}>
-                    <Text style={styles.wel}>Welcome again</Text>
+                    <Text style={styles.wel}>PetPals</Text>
                 </View>
                 <View style={styles.loginForm}>
-                    <View style={styles.formInputs}>
-                        <TextInput 
-                        style={styles.input}
-                        placeholder='email or phone number'
-                        />
-                        <TextInput 
-                        style={styles.input}
-                        placeholder='password'
-                        />
+                    <View style={styles.formHeading}>
+                        <Text style={styles.formHeadingText}>Login to your Account</Text>
                     </View>
-                    <View style={styles.forgot}>
-                        <Checkbox
-                        style={styles.checkbox}
-                        value={isChecked}
-                        onValueChange={setChecked}
-                        color={isChecked ? '#387ADF' : undefined}
-                        />
-                        <Text style={styles.forgotText}>Forgot password</Text>
+                    <View style={styles.normalLogin}>
+                        <View style={styles.formInputs}>
+                            <TextInput 
+                            style={styles.input}
+                            placeholder='email or phone number'
+                            />
+                            <TextInput 
+                            style={styles.input}
+                            placeholder='password'
+                            />
+                        </View>
+                        <View style={styles.forgot}>
+                            {/* <Checkbox
+                            style={styles.checkbox}
+                            value={isChecked}
+                            onValueChange={setChecked}
+                            color={isChecked ? '#387ADF' : undefined}
+                            /> */}
+                            <Text style={styles.forgotText}>Forgot password?</Text>
+                        </View>
+                        <View>
+                            <TouchableHighlight style={styles.loginBtn}
+                            underlayColor='#FF8080'
+                            onPress={() => alert('Pressed!')}
+                            >
+                                <Text style={styles.loginText}>Login</Text>
+                            </TouchableHighlight>
+                        </View>
                     </View>
-                    <View>
-                        <TouchableHighlight style={styles.loginBtn}
-                        underlayColor='#FF8080'
-                        onPress={() => alert('Pressed!')}
-                        >
-                            <Text style={styles.loginText}>Login</Text>
-                        </TouchableHighlight>
-                    </View>
-                    <Text>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis eum enim velit ratione placeat at, omnis nulla, repudiandae adipisci molestias neque odit distinctio libero. Aperiam animi eligendi autem ad nostrum?</Text>
+                </View>
+                <View styles={styles.middleText}>
+                    <Text style={styles.orText}>Or sign in with</Text>
+                </View>
+                <View style={styles.otherLogin}>
+                    <TouchableHighlight style={styles.signGoogle}>
+                        <View style={styles.signUpBtn}>
+                            <Image
+                            style={{ width: 20, height: 20 }}
+                            source={require('../../assets/images/google.png')}
+                            />
+                            <Text style={styles.signGText}>Sign in with Google</Text>
+                        </View>
+                    </TouchableHighlight>
+                </View>
+                <View style={styles.signUp}>
+                    <Text style={styles.signUpText}>Don't have an Account? </Text>
+                    <TouchableHighlight><Text style={styles.signUpLink}>Sign up</Text></TouchableHighlight>
                 </View>
             </View>
 
@@ -55,9 +78,16 @@ const styles = StyleSheet.create({
         flex: 1,
         width: '100%',
         backgroundColor: '#fff',
-        alignItems: 'center',
         justifyContent: 'center',
         padding: 10,
+    },
+    
+    login: {
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: 40,
+       
     },
     frontText: {
         flexDirection: 'column',
@@ -65,22 +95,27 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     wel: {
-        fontSize: 30,
-
-    },
-    login: {
-        flex: 1,
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: 40,
-       
+        fontSize: 50,
+        fontWeight:'800',
+        color: colors.primary,
     },
     loginForm: {
         flexDirection: 'column',
-        width: 300,
+        width: '100%',
         justifyContent: 'flex-start',
         gap: 15,
+    },
+    formHeading: {
+        flexDirection: 'column',
+        justifyContent: 'flex-start',
+    },
+    formHeadingText: {
+        fontSize: 20,
+        fontWeight: '600',
+
+    },
+    normalLogin: {
+        gap: 20,
     },
     formInputs: {
         flexDirection: 'column',
@@ -99,24 +134,64 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         gap: 10,
-        marginLeft: 10,
-        
       },
       forgotText: {
         fontSize: 18,
+        color: colors.lighBlue,
       },
       loginBtn: {
         marginTop: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#FF8080',
+        backgroundColor: colors.secondary,
         borderRadius: 6,
         paddingVertical: 12,
       },
       loginText: {
-        fontSize: 20,
+        fontSize: 25,
         fontWeight: 'bold',
-        color: '#fff',
+        color: colors.white,
+      },
+      otherLogin: {
+        flexDirection: 'column',
+        width: '100%',
+        justifyContent: 'flex-start',
+      },
+      middleText: {
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+      orText: {
+        fontSize: 18,
+      },
+      signGoogle: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderColor: colors.black,
+        borderWidth: 1,
+        paddingVertical: 15,
+        borderRadius: 6,
+      },
+      signUpBtn: {
+        flexDirection: 'row',
+        gap: 10,
+        alignItems: 'center'
+      },
+      signGText: {
+        fontSize: 18,
+      },
+      signUp: {
+        flexDirection: 'row',
+        alignItems: 'center'
+      },
+      signUpText: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        fontSize: 18,
+      },
+      signUpLink: {
+        color: colors.lighBlue,
+        fontSize: 18,
       }
 })
 
