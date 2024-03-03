@@ -53,7 +53,7 @@ const Login = () => {
                                     setError('')
                                 }
                             }}
-                            value={userDetail}
+                            value={userDetail.toLocaleLowerCase()}
                             style={styles.input}
                             placeholder='email or phone number'
                             />
