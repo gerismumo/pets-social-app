@@ -5,13 +5,20 @@ import Login from './screens/accounts/Login';
 import React, {useState, useEffect} from 'react';
 import { Provider } from 'react-redux';
 import store from './store';
-import { StatusBar } from 'react-native';
+import { StatusBar, ActivityIndicator } from 'react-native';
 import colors from './services/colors';
 import AppNavigator from './screens/AppNavigator';
 import { NavigationContainer } from '@react-navigation/native';
 
 
 export default function App() {
+  const[loaderVisible, setLoaderVisible] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoaderVisible(false);
+    }, 2000);
+  }, []);
   return (
     <NavigationContainer>
       <Provider store={store}>
@@ -21,7 +28,14 @@ export default function App() {
         backgroundColor={colors.white}
         barStyle='dark-content'
         />
-        <AppNavigator/>
+        {loaderVisible ? (
+          <View style={styles.container}>
+             <ActivityIndicator size='large' color="#000000" className='text-[40px]'/>
+          </View>
+        ): (
+          <AppNavigator/>
+        )}
+        
     </Provider>
     </NavigationContainer>
     );

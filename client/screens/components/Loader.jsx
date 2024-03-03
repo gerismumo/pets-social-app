@@ -15,7 +15,7 @@ const Loader = () => {
     <>
     {loaderVisible ? (
       <View style={styles.container}>
-        <ActivityIndicator size='large' color="#000000" className='text-[40px]'/>
+       
       </View>
     ): <Login />}
     </>

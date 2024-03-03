@@ -5,7 +5,7 @@ import colors from '../../services/colors';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../feactures/loginSlice';
 
-const Login = () => {
+const Login = ({navigation}) => {
     const dispatch = useDispatch();
     const [isChecked, setChecked] = useState(false);
     const [userDetail, setUserDetail] = useState('');
@@ -98,7 +98,9 @@ const Login = () => {
                 </View>
                 <View style={styles.signUp}>
                     <Text style={styles.signUpText}>Don't have an Account? </Text>
-                    <TouchableHighlight><Text style={styles.signUpLink}>Sign up</Text></TouchableHighlight>
+                    <TouchableHighlight  
+                    onPress={() => navigation.navigate('SignUp')}
+                    ><Text style={styles.signUpLink}>Sign up</Text></TouchableHighlight>
                 </View>
             </View>
 
