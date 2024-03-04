@@ -77,7 +77,7 @@ const Login = ({navigation}) => {
                             underlayColor={colors.secondary}
                             onPress={() => handleSubmitLogin()}
                             >
-                                <Text style={styles.loginText}>Login</Text>
+                                <Text style={styles.loginText}>Sign in</Text>
                             </TouchableHighlight>
                         </View>
                     </View>
