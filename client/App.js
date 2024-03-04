@@ -30,6 +30,7 @@ export default function App() {
         />
         {loaderVisible ? (
           <View style={styles.container}>
+              <Text style={styles.title}>PetPals</Text>
              <ActivityIndicator size='large' color="#000000" className='text-[40px]'/>
           </View>
         ): (
@@ -48,4 +49,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  title: {
+    fontSize: 50,
+    fontWeight:'800',
+    color: colors.primary,
+  }
 });

@@ -99,6 +99,7 @@ const Login = ({navigation}) => {
                 <View style={styles.signUp}>
                     <Text style={styles.signUpText}>Don't have an Account? </Text>
                     <TouchableHighlight  
+                    underlayColor={colors.white}
                     onPress={() => navigation.navigate('SignUp')}
                     ><Text style={styles.signUpLink}>Sign up</Text></TouchableHighlight>
                 </View>
