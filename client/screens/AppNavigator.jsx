@@ -4,6 +4,7 @@ import Login from './accounts/Login';
 import SignUp from './accounts/SignUp';
 import { Header } from 'react-native/Libraries/NewAppScreen';
 import SignUpHeader from './customs/SignUpHeader';
+import ForgotPass from './accounts/ForgotPass';
 
 
 
@@ -20,6 +21,11 @@ const AppNavigator = () => {
                 header: () => <SignUpHeader />,
                 headerShown: true,
               }
+            }
+            />
+            <Stack.Screen name='forgotPassword' component={ForgotPass} 
+            options={
+              {title: ''}
             }
             />
         </Stack.Navigator>

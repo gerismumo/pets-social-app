@@ -27,7 +27,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: colors.white,
     justifyContent: 'flex-start',
-    padding: 10,
+    paddingVertical: 5,
+    paddingHorizontal: 5,
     width: '100%',
   },
   backContainer: {

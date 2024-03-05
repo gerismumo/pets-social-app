@@ -71,7 +71,12 @@ const Login = ({navigation}) => {
                             />
                         </View>
                         <View style={styles.forgot}>
-                            <Text style={styles.forgotText}>Forgot password?</Text>
+                            <TouchableHighlight
+                             onPress={() => navigation.navigate('forgotPassword')}
+                             underlayColor={colors.white}
+                             >
+                                <Text style={styles.forgotText}>Forgot password?</Text>
+                            </TouchableHighlight>
                         </View>
                         <View>
                             <TouchableHighlight  style={styles.loginBtn}

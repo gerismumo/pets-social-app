@@ -12,6 +12,7 @@ const SignUp = ({navigation}) => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
 
 
     const handleSubmitData = () => {
@@ -20,7 +21,7 @@ const SignUp = ({navigation}) => {
         }
 
         if(password!== confirmPassword) {
-            return setError('passwords do not match');
+            return setPasswordError('passwords do not match');
         }
        
 
@@ -73,19 +74,25 @@ const SignUp = ({navigation}) => {
                             style={styles.input}
                             placeholder='password'
                             />
-                            <TextInput 
-                            onChangeText={text => {
-                                setConfirmPassword(text);
-                                if(text !==  password) {
-                                    setError('password should match');
-                                }else {
-                                  setError('')
-                                }
-                            }}
-                            value={confirmPassword}
-                            style={styles.input}
-                            placeholder='Confirm password'
-                            />
+                            <View style={styles.confirmPass}>
+                                {passwordError !== '' && (
+                                     <Text style={styles.errorText}>{passwordError}</Text>
+                                )}
+                                <TextInput 
+                                onChangeText={text => {
+                                    setConfirmPassword(text);
+                                    if(text !==  password) {
+                                        setPasswordError('password should match');
+                                    }else {
+                                    setPasswordError('')
+                                    }
+                                }}
+                                value={confirmPassword}
+                                style={[styles.input, passwordError!== '' ? styles.errorBorder: null]}
+                                placeholder='Confirm password'
+                                />
+                            </View>
+                            
                         </View>
                         <View>
                             <TouchableHighlight  style={styles.loginBtn}
@@ -128,7 +135,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         width: '100%',
-        backgroundColor: '#fff',
+        backgroundColor: colors.white,
         justifyContent: 'center',
         padding: 10,
     },
@@ -189,14 +196,13 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         fontSize: 20,
       },
-      forgot: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 10,
+      errorBorder: {
+        borderColor: 'red',
       },
-      forgotText: {
-        fontSize: 18,
-        color: colors.lighBlue,
+      confirmPass: {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 10,
       },
       loginBtn: {
         marginTop: 10,
