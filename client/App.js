@@ -13,13 +13,7 @@ import TabsNavigator from './screens/components/TabsNavigator';
 
 
 export default function App() {
-  const[loaderVisible, setLoaderVisible] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoaderVisible(false);
-    }, 2000);
-  }, []);
+ 
   return (
     <NavigationContainer>
       <Provider store={store}>
@@ -29,31 +23,10 @@ export default function App() {
         backgroundColor={colors.white}
         barStyle='dark-content'
         />
-        {loaderVisible ? (
-          <View style={styles.container}>
-              <Text style={styles.title}>PetPals</Text>
-             <ActivityIndicator size='large' color="#000000" className='text-[40px]'/>
-          </View>
-        ): (
-          // <AppNavigator/>
-          <TabsNavigator />
-        )}
-        
+        {/* app screens */}
+        <AppNavigator/>
     </Provider>
     </NavigationContainer>
     );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 50,
-    fontWeight:'800',
-    color: colors.primary,
-  }
-});

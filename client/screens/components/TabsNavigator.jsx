@@ -10,6 +10,7 @@ import colors from '../../services/colors';
 import {faSquarePlus} from '@fortawesome/free-regular-svg-icons';
 import {Image, View, Text} from 'react-native'
 import TrendsHeader from '../customs/TrendsHeader';
+import HomeHeader from '../customs/HomeHeader';
 
 const CustomHeader = ({ title }) => {
     return (
@@ -59,8 +60,7 @@ const TabsNavigator = () => {
             ),
             tabBarAccessibilityLabel: 'Accessibility',
             header: ({ navigation, route, options }) => {
-                const title = route.name; 
-                return <CustomHeader title={title} />;
+                return <HomeHeader/>
               },
         }}
         />

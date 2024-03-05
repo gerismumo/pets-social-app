@@ -5,13 +5,25 @@ import SignUp from './accounts/SignUp';
 import { Header } from 'react-native/Libraries/NewAppScreen';
 import SignUpHeader from './customs/SignUpHeader';
 import ForgotPass from './accounts/ForgotPass';
+import TabsNavigator from './components/TabsNavigator';
+import Loader from './components/Loader';
 
 
 
 const AppNavigator = () => {
     const Stack = createNativeStackNavigator();
   return (
-        <Stack.Navigator>
+        <Stack.Navigator
+          initialRouteName='Loader'
+        >
+          <Stack.Screen name='Loader' component={Loader} 
+          options={{
+            headerShown: false,
+          }}
+          />
+          <Stack.Screen name="Main" component={TabsNavigator} 
+          options={{ headerShown: false }}
+          />
             <Stack.Screen name="Login" component={Login} 
              options={{ headerShown: false }}
             />
@@ -28,6 +40,7 @@ const AppNavigator = () => {
               {title: ''}
             }
             />
+            
         </Stack.Navigator>
   )
 }
