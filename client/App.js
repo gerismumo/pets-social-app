@@ -9,6 +9,7 @@ import { StatusBar, ActivityIndicator } from 'react-native';
 import colors from './services/colors';
 import AppNavigator from './screens/AppNavigator';
 import { NavigationContainer } from '@react-navigation/native';
+import TabsNavigator from './screens/components/TabsNavigator';
 
 
 export default function App() {
@@ -34,7 +35,8 @@ export default function App() {
              <ActivityIndicator size='large' color="#000000" className='text-[40px]'/>
           </View>
         ): (
-          <AppNavigator/>
+          // <AppNavigator/>
+          <TabsNavigator />
         )}
         
     </Provider>
