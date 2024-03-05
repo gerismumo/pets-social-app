@@ -9,6 +9,7 @@ import {faHouse, faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
 import colors from '../../services/colors';
 import {faSquarePlus} from '@fortawesome/free-regular-svg-icons';
 import {Image, View, Text} from 'react-native'
+import TrendsHeader from '../customs/TrendsHeader';
 
 const CustomHeader = ({ title }) => {
     return (
@@ -58,7 +59,7 @@ const TabsNavigator = () => {
             ),
             tabBarAccessibilityLabel: 'Accessibility',
             header: ({ navigation, route, options }) => {
-                const title = route.name; // You can customize the title as needed
+                const title = route.name; 
                 return <CustomHeader title={title} />;
               },
         }}
@@ -75,7 +76,9 @@ const TabsNavigator = () => {
             tabBarIcon: ({color, size, focused}) => (
                 <FontAwesomeIcon icon={faMagnifyingGlass} size={iconSize} color={focused ? colors.black : colors.black}  />
             ),
-            headerShown: false,
+            header: () => {
+                return <TrendsHeader/>
+            }
         }}
         />
         <Tab.Screen name='profile' component={Profile} 

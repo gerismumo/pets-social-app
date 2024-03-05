@@ -1,11 +1,14 @@
 import React from 'react'
-import { View, Text } from 'react-native';
+import { View, Text,ScrollView } from 'react-native';
 
 const Trends = () => {
   return (
-    <View>
-        <Text>Trends</Text>
-    </View>
+    <ScrollView>
+        <View>
+            <Text>trends page</Text>
+        </View>
+    </ScrollView>
+    
   )
 }
 
