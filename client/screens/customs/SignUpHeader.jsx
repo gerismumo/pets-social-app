@@ -1,46 +1,39 @@
-import React from 'react'
-import {TouchableHighlight, View, Text, StyleSheet} from 'react-native';
-import {useNavigation } from '@react-navigation/native'
+import React from 'react';
+import { TouchableHighlight, View, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import colors from '../../services/colors';
-import Icons from '../../services/Icons';
-
-
+import icons from '../../services/icons';
 
 
 const SignUpHeader = () => {
-const navigation = useNavigation();
-    
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
-        <TouchableHighlight
+      <TouchableHighlight
         underlayColor={colors.white}
-         onPress={() => navigation.navigate('Login')} 
-         style={styles.backContainer}
-         >
-            <View>
-                <Text style={styles.headerText}>{Icons.arrowLeft}</Text>
-            </View>
-        </TouchableHighlight>
+        onPress={() => navigation.navigate('Login')}
+        style={styles.backContainer}
+      >
+       {icons.arrowLeft}
+      </TouchableHighlight>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-    container: {
-        display: 'flex',
-        flexDirection: 'row',
-        backgroundColor: colors.white,
-        justifyContent: 'flex-start',
-        padding: 10,
-        width: '100%',
-    },
-    backContainer: {
-        backgroundColor: colors.white,
-        justifyContent:'flex-start',
-    },
-    headerText: {
-        color: colors.black,
-    }
+  container: {
+    display: 'flex',
+    flexDirection: 'row',
+    backgroundColor: colors.white,
+    justifyContent: 'flex-start',
+    padding: 10,
+    width: '100%',
+  },
+  backContainer: {
+    backgroundColor: colors.white,
+    justifyContent: 'flex-start',
+  },
 })
 
 export default SignUpHeader;

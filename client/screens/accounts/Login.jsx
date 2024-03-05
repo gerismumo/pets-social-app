@@ -5,6 +5,7 @@ import colors from '../../services/colors';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../feactures/loginSlice';
 
+
 const Login = ({navigation}) => {
     const dispatch = useDispatch();
     const [isChecked, setChecked] = useState(false);
