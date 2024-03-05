@@ -27,7 +27,7 @@ const TabsNavigator = () => {
     const iconSize = 23;
 
     const refreshHomePage = () =>{
-        alert('Refresh Home Page')
+        // alert('Refresh Home Page')
         console.log('Refresh Home Page')
     }
   return (
@@ -48,14 +48,7 @@ const TabsNavigator = () => {
         },
     }}
 
-    listeners={({ navigation, route }) => ({
-        tabPress: e => {
-          // Prevent default behavior
-          e.preventDefault();
-          // Scroll to top
-          refreshHomePage();
-        },
-      })}
+   
     >
         <Tab.Screen name='Home' component={Home} 
         options={{
@@ -67,10 +60,6 @@ const TabsNavigator = () => {
             header: ({ navigation, route, options }) => {
                 const title = route.name; // You can customize the title as needed
                 return <CustomHeader title={title} />;
-              },
-              tabPress: e => {
-                e.preventDefault();
-                refreshHomePage();
               },
         }}
         />
@@ -85,7 +74,8 @@ const TabsNavigator = () => {
         options={{
             tabBarIcon: ({color, size, focused}) => (
                 <FontAwesomeIcon icon={faMagnifyingGlass} size={iconSize} color={focused ? colors.black : colors.black}  />
-            )
+            ),
+            headerShown: false,
         }}
         />
         <Tab.Screen name='profile' component={Profile} 
