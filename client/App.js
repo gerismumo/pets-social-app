@@ -10,9 +10,25 @@ import colors from './services/colors';
 import AppNavigator from './screens/AppNavigator';
 import { NavigationContainer } from '@react-navigation/native';
 import TabsNavigator from './screens/components/TabsNavigator';
+import * as ScreenOrientation from 'expo-screen-orientation';
+
 
 
 export default function App() {
+
+  useEffect(() => {
+    async function changeScreenOrientation() {
+      await ScreenOrientation.unlockAsync();
+      await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.ALL);
+    }
+
+    changeScreenOrientation();
+
+    return () => {
+      ScreenOrientation.unlockAsync();
+    };
+  }, []);
+
  
   return (
     <NavigationContainer>
