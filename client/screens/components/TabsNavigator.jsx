@@ -11,6 +11,7 @@ import {faSquarePlus} from '@fortawesome/free-regular-svg-icons';
 import {Image, View, Text} from 'react-native'
 import TrendsHeader from '../customs/TrendsHeader';
 import HomeHeader from '../customs/HomeHeader';
+import { screensName } from '../AppNavigator';
 
 const CustomHeader = ({ title }) => {
     return (
@@ -52,7 +53,7 @@ const TabsNavigator = () => {
 
    
     >
-        <Tab.Screen name='Home' component={Home} 
+        <Tab.Screen name={screensName.home} component={Home} 
         options={{
             title: 'Home',
             tabBarIcon: ({ color, size, focused }) =>(
@@ -60,18 +61,18 @@ const TabsNavigator = () => {
             ),
             tabBarAccessibilityLabel: 'Accessibility',
             header: ({ navigation, route, options }) => {
-                return <HomeHeader/>
+                return <HomeHeader navigation={navigation}/>
               },
         }}
         />
-        <Tab.Screen name='Posts' component={Posts}
+        <Tab.Screen name={screensName.posts} component={Posts}
         options={{
             tabBarIcon: ({ color, size, focused }) =>(
                 <FontAwesomeIcon icon={faSquarePlus} size={iconSize }  color={focused ? colors.black : colors.black}  />
             ),
         }} 
         />
-        <Tab.Screen name='trends' component={Trends} 
+        <Tab.Screen name={screensName.trends} component={Trends} 
         options={{
             tabBarIcon: ({color, size, focused}) => (
                 <FontAwesomeIcon icon={faMagnifyingGlass} size={iconSize} color={focused ? colors.black : colors.black}  />
@@ -81,7 +82,7 @@ const TabsNavigator = () => {
             }
         }}
         />
-        <Tab.Screen name='profile' component={Profile} 
+        <Tab.Screen name={screensName.profile} component={Profile} 
         options={{
             tabBarIcon: () => (
                 <View style={{ width: 30, height: 30, borderRadius: 15, overflow: 'hidden' }}>

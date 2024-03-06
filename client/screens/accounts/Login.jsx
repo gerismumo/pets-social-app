@@ -4,6 +4,7 @@ import Checkbox from 'expo-checkbox';
 import colors from '../../services/colors';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../feactures/loginSlice';
+import { screensName } from '../AppNavigator';
 
 
 const Login = ({navigation}) => {
@@ -106,7 +107,7 @@ const Login = ({navigation}) => {
                     <Text style={styles.signUpText}>Don't have an Account? </Text>
                     <TouchableHighlight  
                     underlayColor={colors.white}
-                    onPress={() => navigation.navigate('SignUp')}
+                    onPress={() => navigation.navigate(screensName.signUp)}
                     ><Text style={styles.signUpLink}>Sign up</Text></TouchableHighlight>
                 </View>
             </View>

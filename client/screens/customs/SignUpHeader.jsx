@@ -3,6 +3,7 @@ import { TouchableHighlight, View, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import colors from '../../services/colors';
 import icons from '../../services/icons';
+import { screensName } from '../AppNavigator';
 
 
 const SignUpHeader = () => {
@@ -12,7 +13,7 @@ const SignUpHeader = () => {
     <View style={styles.container}>
       <TouchableHighlight
         underlayColor={colors.white}
-        onPress={() => navigation.navigate('Login')}
+        onPress={() => navigation.navigate(screensName.login)}
         style={styles.backContainer}
       >
        {icons.arrowLeft}

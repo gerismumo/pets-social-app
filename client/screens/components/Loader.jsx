@@ -3,6 +3,7 @@ import { View, Text, ActivityIndicator,  StyleSheet } from 'react-native';
 import Login from '../accounts/Login';
 import { AppTitle } from '../../services/appName';
 import colors from '../../services/colors';
+import { main, screensName } from '../AppNavigator';
 
 
 const Loader = ({navigation}) => {
@@ -11,7 +12,7 @@ const Loader = ({navigation}) => {
   useEffect(() => {
     setTimeout(() => {
       setLoaderVisible(false);
-      navigation.navigate('Main');
+      navigation.navigate(screensName.main);
     }, 2000);
   }, []);
   return (
