@@ -12,7 +12,7 @@ const Loader = ({navigation}) => {
   useEffect(() => {
     setTimeout(() => {
       setLoaderVisible(false);
-      navigation.navigate(screensName.login);
+      navigation.navigate(screensName.main);
     }, 2000);
   }, []);
   return (
