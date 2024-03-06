@@ -27,7 +27,8 @@ export const screensName = {
 
 
 const AppNavigator = () => {
-    const Stack = createNativeStackNavigator();
+  const Stack = createNativeStackNavigator();
+  
   return (
         <Stack.Navigator
           initialRouteName={screensName.loader}
