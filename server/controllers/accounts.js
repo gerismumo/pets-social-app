@@ -1,6 +1,8 @@
-const login = (req, res) => {
-    console.log(req.body);
 
+
+const login = (req, res) => {
+  const data = req.body;
+  console.log(data);
 }
 
 const signUp = (req, res) => {

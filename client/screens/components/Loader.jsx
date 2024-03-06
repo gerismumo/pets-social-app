@@ -12,17 +12,15 @@ const Loader = ({navigation}) => {
   useEffect(() => {
     setTimeout(() => {
       setLoaderVisible(false);
-      navigation.navigate(screensName.main);
+      navigation.navigate(screensName.login);
     }, 2000);
   }, []);
   return (
     <>
-    {loaderVisible ? (
       <View style={styles.container}>
           <Text style={styles.title}>{AppTitle}</Text>
           <ActivityIndicator size='large' color="#000000" className='text-[40px]'/>
       </View>
-    ): <Login />}
     </>
   )
 }

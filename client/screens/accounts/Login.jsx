@@ -25,6 +25,7 @@ const Login = ({navigation}) => {
             userDetail,
             password
         }
+        
 
         dispatch(loginUser(data));
 
