@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, SafeAreaView, TextInput, Button, TouchableHighl
 import Checkbox from 'expo-checkbox';
 import colors from '../../services/colors';
 import { useDispatch } from 'react-redux';
-import { loginUser } from '../../feactures/loginSlice';
+import { SignUpUser } from '../../features/accountSlice';
 
 const SignUp = ({navigation}) => {
     const dispatch = useDispatch();
@@ -30,7 +30,7 @@ const SignUp = ({navigation}) => {
             password
         }
 
-        dispatch(loginUser(data));
+        dispatch(SignUpUser(data));
 
     }
 
