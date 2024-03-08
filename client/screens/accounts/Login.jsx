@@ -2,9 +2,9 @@ import React, {useState} from 'react'
 import { View, Text, StyleSheet, SafeAreaView, TextInput, Button, TouchableHighlight,TouchableOpacity, Image } from 'react-native';
 import Checkbox from 'expo-checkbox';
 import colors from '../../services/colors';
-import { useDispatch } from 'react-redux';
 import { loginUser } from '../../features/accountSlice';
 import { screensName } from '../AppNavigator';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 const Login = ({navigation}) => {
@@ -13,6 +13,11 @@ const Login = ({navigation}) => {
     const [userDetail, setUserDetail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+
+    //states
+
+    const loginStates = useSelector((state) => state.account);
+    console.log('loginStates',loginStates.loginData.authentication);
 
 
     const handleSubmitLogin = () => {
@@ -26,6 +31,10 @@ const Login = ({navigation}) => {
             password
         }
         dispatch(loginUser(data));
+
+        if(loginStates.loginData.authentication) {
+            navigation.navigate(screensName.main);
+        }
 
     }
 

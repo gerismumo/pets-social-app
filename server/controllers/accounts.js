@@ -15,7 +15,7 @@ const login = async(req, res) => {
         return res.json({success: false, message: 'Email does not exist, please sign up'});
     }else {
         if(password !== findUser[0].user_password) {
-            return res.json({success: true, message: 'password does not match'});
+            return res.json({success: false, message: 'password does not match'});
         }else {
             return res.json({success: true, message: 'Login Success'});
         }

@@ -10,7 +10,13 @@ async(data, thunkApi) => {
     try{
         const response = await axios.post(url, data);
         console.log(response.data);
+        if(response.data.success) {
+            return thunkApi.fulfillWithValue(response.data.message);
+        }else {
+            return thunkApi.rejectWithValue(response.data.message);
+        }
     }catch(error) {
+        console.log(error.message);
         throw error;
     }
 })
@@ -28,9 +34,39 @@ async(data,  thunkApi) => {
 
 const accountSlice = createSlice({
     initialState: {
-
+        loginData: {
+            error: '',
+            message: '',
+            data: '',
+            authentication: false,
+        },
+        signUpData: {
+            error: '',
+            message: '',
+            data: '',
+            authentication: false,
+        }
     },
-    name: 'login',
+    name: 'account',
+    extraReducers:(builder) => {
+            builder.addCase(loginUser.pending, (state, action) => {
+                state.loginData.error = '';
+                state.loginData.message = '';
+            })
+            builder.addCase(loginUser.fulfilled, (state, action) => {
+                console.log(action.payload),
+                state.loginData.error = '';
+                state.loginData.message = action.payload;
+                state.loginData.authentication = true;
+            })
+            builder.addCase(loginUser.rejected, (state, action) => {
+                console.log('rejected',action.payload),
+                state.loginData.error = action.payload;
+                state.loginData.message = '';
+                state.loginData.authentication = false;
+            })
+        }
+    
 })
 
 export default accountSlice.reducer;

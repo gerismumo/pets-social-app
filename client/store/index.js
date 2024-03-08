@@ -3,7 +3,7 @@ import accountReducer from "../features/accountSlice";
 
 const store = configureStore({
     reducer: {
-        login: accountReducer,
+        account: accountReducer,
     }
 })
 
