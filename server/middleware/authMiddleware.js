@@ -20,7 +20,7 @@ const protect = async(req, res, next) => {
             req.user = User[0].user_id;
             next();
         }catch (error) {
-            console.log('middle ware error',error.message)
+            console.log('middle ware error',error.message);
             res.json({success: false, error: 'Please login first'});
         }
     }

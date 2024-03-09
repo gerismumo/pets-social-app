@@ -14,12 +14,14 @@ async(thunkApi) => {
         if(token === '') {
             throw new Error('Token is missing');
         }
+
         const response = await axios.get(`${config.backendUrl}/testInfo`, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
         })
-        console.log(response.data)
+       
+        // console.log(response.data)
         //success response
         if(response.data.success) {
             return response.data;
@@ -39,6 +41,7 @@ const contentSlice = createSlice({
         error: '',
         message: '',
         loading: false,
+        success: '',
         data:[],
     },
     name: 'content',
@@ -53,7 +56,7 @@ const contentSlice = createSlice({
             console.log('fulfilled', action.payload)
             state.loading = false;
             state.error = '';
-            state.message = '';
+            state.success = action.payload.success;
             state.data = action.payload.contentData;
         })
         builder.addCase(contentList.rejected , (state, action) => {
