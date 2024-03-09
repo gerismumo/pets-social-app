@@ -4,15 +4,23 @@ import Login from '../accounts/Login';
 import { AppTitle } from '../../services/appName';
 import colors from '../../services/colors';
 import { main, screensName } from '../AppNavigator';
+import { useSelector } from 'react-redux';
 
 
 const Loader = ({navigation}) => {
   const[loaderVisible, setLoaderVisible] = useState(true);
 
+  //states
+  const loginStates = useSelector((state) => state.account);
+
   useEffect(() => {
     setTimeout(() => {
       setLoaderVisible(false);
-      navigation.navigate(screensName.login);
+      if(loginStates.loginData.authentication){
+        navigation.navigate(screensName.main);
+      }else {
+        navigation.navigate(screensName.login);
+      }
     }, 2000);
   }, []);
   return (

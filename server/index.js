@@ -8,7 +8,7 @@ dotenv.config();
 
 
 
-app.use(cors({origin: 'exp://192.168.3.124:8081'}));
+app.use(cors({origin: 'exp://192.168.0.101:8081'}));
 app.use(express.json());
 
 app.use('/', router)

@@ -17,9 +17,7 @@ const Login = ({navigation}) => {
     //states
 
     const loginStates = useSelector((state) => state.account);
-    console.log('loginStates',loginStates.loginData.authentication);
-
-
+  
     const handleSubmitLogin = () => {
         if(userDetail === '' || password === '') {
            return setError('fill all the details');
@@ -32,9 +30,12 @@ const Login = ({navigation}) => {
         }
         dispatch(loginUser(data));
 
-        if(loginStates.loginData.authentication) {
-            navigation.navigate(screensName.main);
-        }
+        // if(loginStates.loginData.authentication) {
+        //     console.log('use is authenticated')
+        //     navigation.navigate(screensName.main);
+        // }else {
+        //     console.log('use is not authenticated')
+        // }
 
     }
 
