@@ -4,8 +4,15 @@ const accounts = {
     selectUser: 'SELECT * FROM users_table WHERE user_id = ?',
 }
 
+//test authenticate 
+
+const test = {
+    selectContent: 'SELECT * FROM user_content',
+}
+
 const queries = {
-    accounts
+    accounts,
+    test
 }
 
 module.exports = queries;

@@ -28,8 +28,8 @@ const login = async(req, res) => {
                 id: id,
                 token: token
             }
-            console.log(user);
-            return res.json({success: true, message: 'Login Success'});
+            // console.log(user);
+            return res.json({success: true, data: token, message: 'Login Success'});
         }
     }
   }catch(error) {
@@ -66,7 +66,7 @@ const signUp = async(req, res) => {
 
 const generateToken = (id) => {
     return jwt.sign({id} , process.env.JWT_SECRET, {
-        expiresIn: '1d',
+        expiresIn: '30d',
     })
 }
 
