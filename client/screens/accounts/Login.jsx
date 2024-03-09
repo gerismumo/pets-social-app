@@ -5,6 +5,7 @@ import colors from '../../services/colors';
 import { loginUser } from '../../features/accountSlice';
 import { screensName } from '../AppNavigator';
 import { useDispatch, useSelector } from 'react-redux';
+import { contentList } from '../../features/contentSlice';
 
 
 const Login = ({navigation}) => {
@@ -15,10 +16,12 @@ const Login = ({navigation}) => {
     const [error, setError] = useState('');
 
     //states
-
     const loginStates = useSelector((state) => state.account);
+    // console.log('loginStates',loginStates)
+    const contentStates = useSelector((state) => state.content);
   
-    const handleSubmitLogin = () => {
+  
+    const handleSubmitLogin = async () => {
         if(userDetail === '' || password === '') {
            return setError('fill all the details');
         }
@@ -29,6 +32,11 @@ const Login = ({navigation}) => {
             password
         }
         dispatch(loginUser(data));
+        dispatch(contentList());
+        console.log('contentStates',contentStates);
+
+
+        // navigation.navigate(screensName.main);
 
         // if(loginStates.loginData.authentication) {
         //     console.log('use is authenticated')

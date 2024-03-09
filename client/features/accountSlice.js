@@ -1,19 +1,22 @@
 import {createAsyncThunk,createSlice} from '@reduxjs/toolkit';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import axios from 'axios';
 import config from '../config';
 
 export const loginUser = createAsyncThunk('login/loginUser', 
 async(data, thunkApi) => {
-    console.log('login data',data);
     const url = `${config.backendUrl}/signInUser`;
    
     try{
         const response = await axios.post(url, data);
-        console.log(response.data);
+        // console.log('token thunk',thunkApi.getState().account.loginData.userToken);
         if(response.data.success) {
-            return thunkApi.fulfillWithValue(response.data.message);
+            await AsyncStorage.setItem('userToken', response.data.data);
+            
+            return thunkApi.fulfillWithValue(response.data);
         }else {
-            return thunkApi.rejectWithValue(response.data.message);
+            return thunkApi.rejectWithValue(response.data);
         }
     }catch(error) {
         console.log(error.message);
@@ -37,13 +40,13 @@ const accountSlice = createSlice({
         loginData: {
             error: '',
             message: '',
-            data: '',
+            userToken: '',
             authentication: false,
         },
         signUpData: {
             error: '',
             message: '',
-            data: '',
+            userToken: '',
             authentication: false,
         }
     },
@@ -54,16 +57,18 @@ const accountSlice = createSlice({
                 state.loginData.message = '';
             })
             builder.addCase(loginUser.fulfilled, (state, action) => {
-                console.log(action.payload),
+                // console.log('login sucess',action.payload),
                 state.loginData.error = '';
-                state.loginData.message = action.payload;
+                state.loginData.message = action.payload.message;
+                state.loginData.userToken = action.payload.data;
                 state.loginData.authentication = true;
             })
             builder.addCase(loginUser.rejected, (state, action) => {
-                console.log('rejected',action.payload),
-                state.loginData.error = action.payload;
+                // console.log('rejected',action.payload),
+                state.loginData.error = action.payload.message;
                 state.loginData.message = '';
                 state.loginData.authentication = false;
+                state.loginData.userToken = ''
             })
         }
     
