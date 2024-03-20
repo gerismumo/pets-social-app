@@ -12,11 +12,12 @@ const Loader = ({navigation}) => {
 
   //states
   const loginStates = useSelector((state) => state.account);
+  const contentStates = useSelector((state) => state.content);
 
   useEffect(() => {
     setTimeout(() => {
       setLoaderVisible(false);
-      if(loginStates.loginData.authentication){
+      if(contentStates.success){
         navigation.navigate(screensName.main);
       }else {
         navigation.navigate(screensName.login);
