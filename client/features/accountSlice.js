@@ -6,7 +6,7 @@ import config from '../config';
 
 export const loginUser = createAsyncThunk('login/loginUser', 
 async(data, thunkApi) => {
-    const url = `${config.backendUrl}/signInUser`;
+    const url = `${config.backendUrl}/api/login`;
    
     try{
         const response = await axios.post(url, data);
@@ -19,7 +19,7 @@ async(data, thunkApi) => {
             return thunkApi.rejectWithValue(response.data);
         }
     }catch(error) {
-        console.log(error.message);
+        console.log('login',error);
         throw error;
     }
 })
@@ -28,7 +28,7 @@ export const SignUpUser = createAsyncThunk('account/signUpUser',
 async(data,  thunkApi) => {
     console.log(data);
     try{
-        const response = await axios.post(`${config.backendUrl}/signUpUser`, data);
+        const response = await axios.post(`${config.backendUrl}/api/signUpUser`, data);
         console.log(response.data);
     }catch(error) {
         throw error;

@@ -32,8 +32,8 @@ const Login = ({navigation}) => {
             password
         }
         dispatch(loginUser(data));
-        dispatch(contentList());
-        console.log('contentStates',contentStates);
+        // dispatch(contentList());
+        // console.log('contentStates',contentStates);
         if(contentStates.success) { 
           navigation.navigate(screensName.main);
         }
