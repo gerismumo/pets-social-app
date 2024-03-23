@@ -14,6 +14,8 @@ import HomeHeader from '../customs/HomeHeader';
 import { screensName } from '../AppNavigator';
 import { faBell } from '@fortawesome/free-regular-svg-icons';
 import Message from './Message';
+import MessageHeader from '../customs/MessageHeader';
+import AlertsHeader from '../customs/AlertsHeader';
 
 const CustomHeader = ({ title }) => {
     return (
@@ -89,6 +91,9 @@ const TabsNavigator = () => {
             tabBarIcon: ({color, size, focused}) => (
                 <FontAwesomeIcon icon={faBell} size={iconSize} color={focused ? colors.black : colors.black}  />
             ),
+            header: () => {
+                return <AlertsHeader/>
+            }
         }}
         />
         <Tab.Screen name={screensName.messager} component={Message} 
@@ -96,6 +101,9 @@ const TabsNavigator = () => {
             tabBarIcon: ({color, size, focused}) => (
                 <FontAwesomeIcon icon={faEnvelope} size={iconSize} color={focused ? colors.black : colors.black}  />
             ),
+            header: () => {
+                return <MessageHeader/>
+            }
         }}
         />
     </Tab.Navigator>
