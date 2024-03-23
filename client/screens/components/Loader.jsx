@@ -12,17 +12,16 @@ const Loader = ({navigation}) => {
 
   //states
   const loginStates = useSelector((state) => state.account);
-  // const contentStates = useSelector((state) => state.content);
+  const contentStates = useSelector((state) => state.content);
 
   useEffect(() => {
     setTimeout(() => {
       setLoaderVisible(false);
-      // if(contentStates.success){
-      //   navigation.navigate(screensName.main);
-      // }else {
-      //   navigation.navigate(screensName.login);
-      // }
-      navigation.navigate(screensName.login);
+      if(contentStates.success){
+        navigation.navigate(screensName.main);
+      }else {
+        navigation.navigate(screensName.login);
+      }
     }, 2000);
   }, []);
   return (

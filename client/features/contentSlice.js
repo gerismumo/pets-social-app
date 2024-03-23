@@ -11,17 +11,18 @@ async(thunkApi) => {
   
     try{
         const token = await AsyncStorage.getItem('userToken');
+        console.log("details token: " + token);
         if(token === '') {
             throw new Error('Token is missing');
         }
 
-        const response = await axios.get(`${config.backendUrl}/testInfo`, {
+        const response = await axios.get(`${config.backendUrl}/api/testInfo`, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
         })
        
-        // console.log(response.data)
+        console.log(response.data)
         //success response
         if(response.data.success) {
             return response.data;
@@ -53,14 +54,14 @@ const contentSlice = createSlice({
             state.data = [];
         })
         builder.addCase(contentList.fulfilled , (state, action) => {
-            console.log('fulfilled', action.payload)
+            // console.log('fulfilled', action.payload)
             state.loading = false;
             state.error = '';
             state.success = action.payload.success;
-            state.data = action.payload.contentData;
+            state.data = action.payload.data;
         })
         builder.addCase(contentList.rejected , (state, action) => {
-            console.log('reject', action)
+            // console.log('reject', action)
             state.loading = false;
             state.error = action.payload.message;
             state.message = '';
