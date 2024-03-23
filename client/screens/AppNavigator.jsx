@@ -57,8 +57,8 @@ const AppNavigator = () => {
               {title: ''}
             }
             />
-            <Stack.Screen name={screensName.messager} component={Message} />
-            <Stack.Screen name={screensName.notifiactions} component={Notifications} />
+            {/* <Stack.Screen name={screensName.messager} component={Message} />
+            <Stack.Screen name={screensName.notifiactions} component={Notifications} /> */}
             
         </Stack.Navigator>
   )

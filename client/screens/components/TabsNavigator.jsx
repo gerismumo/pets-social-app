@@ -5,13 +5,15 @@ import Posts from './Posts';
 import Trends from './Trends';
 import Profile from './Profile';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import {faHouse, faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
+import {faHouse, faMagnifyingGlass, faEnvelope} from "@fortawesome/free-solid-svg-icons";
 import colors from '../../services/colors';
 import {faSquarePlus} from '@fortawesome/free-regular-svg-icons';
 import {Image, View, Text} from 'react-native'
 import TrendsHeader from '../customs/TrendsHeader';
 import HomeHeader from '../customs/HomeHeader';
 import { screensName } from '../AppNavigator';
+import { faBell } from '@fortawesome/free-regular-svg-icons';
+import Message from './Message';
 
 const CustomHeader = ({ title }) => {
     return (
@@ -82,19 +84,18 @@ const TabsNavigator = () => {
             }
         }}
         />
-        <Tab.Screen name={screensName.profile} component={Profile} 
+        <Tab.Screen name={screensName.notifiactions} component={Trends} 
         options={{
-            tabBarIcon: () => (
-                <View style={{ width: 30, height: 30, borderRadius: 15, overflow: 'hidden' }}>
-                    <Image
-                    source={require('../../assets/images/IMG_20220506_102409.jpg')}
-                    style={{ width: '100%', height: '100%' }}
-                    />
-                </View>
+            tabBarIcon: ({color, size, focused}) => (
+                <FontAwesomeIcon icon={faBell} size={iconSize} color={focused ? colors.black : colors.black}  />
             ),
-            // tabBarIconStyle: {
-            //     borderRadius: 15,
-            // }
+        }}
+        />
+        <Tab.Screen name={screensName.messager} component={Message} 
+        options={{
+            tabBarIcon: ({color, size, focused}) => (
+                <FontAwesomeIcon icon={faEnvelope} size={iconSize} color={focused ? colors.black : colors.black}  />
+            ),
         }}
         />
     </Tab.Navigator>
