@@ -1,21 +1,34 @@
 import React from 'react'
 import { View, Text, TouchableHighlight , StyleSheet} from 'react-native'
 import colors from '../../services/colors'
+import { screensName } from '../AppNavigator'
+import { useNavigation } from '@react-navigation/native'
 
 const AlertsHeader = () => {
+    const navigation = useNavigation();
   return (
     <View style={styles.container}>
         <View style={styles.titleContainer}>
             <Text style={styles.titleText}>Alerts</Text>
         </View>
         <View style={styles.alertNotifications}>
-            <TouchableHighlight>
+            <TouchableHighlight
+            underlayColor={colors.white}
+            onPress={() => navigation.navigate(screensName.allAlerts)}
+            
+            >
                 <Text style={styles.alertText}>All</Text>
             </TouchableHighlight>
-            <TouchableHighlight>
+            <TouchableHighlight
+            underlayColor={colors.white}
+             onPress={() => navigation.navigate(screensName.mentionAlerts)}
+            >
                 <Text style={styles.alertText}>Mentions</Text>
             </TouchableHighlight>
-            <TouchableHighlight>
+            <TouchableHighlight
+            underlayColor={colors.white}
+             onPress={() => navigation.navigate(screensName.followAlerts)}
+            >
                 <Text style={styles.alertText}>Follows</Text>
             </TouchableHighlight>
         </View>
@@ -39,8 +52,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     titleText: {
-        fontSize: 20,
-        fontWeight: '600',
+        fontSize: 18,
+        fontWeight: '700',
 
     },
     alertNotifications: {
@@ -50,7 +63,7 @@ const styles = StyleSheet.create({
         gap: 10,
     },
     alertText: {
-        fontSize: 17,
+        fontSize: 16,
         fontWeight: '400',
     }
 })

@@ -9,6 +9,9 @@ import TabsNavigator from './components/TabsNavigator';
 import Loader from './components/Loader';
 import Message from './components/Message';
 import Notifications from './components/Notifications';
+import AllAlerts from './components/Alerts/AllAlerts';
+import MentionAlerts from './components/Alerts/MentionAlerts';
+import FollowAlert from './components/Alerts/FollowAlert';
 
 
 export const screensName = {
@@ -23,6 +26,9 @@ export const screensName = {
   posts:'Posts',
   trends: 'trends',
   profile: 'profile',
+  allAlerts:'allAlerts',
+  mentionAlerts:'mentionAlerts',
+  followAlerts:'followAlerts',
 }
 
 
@@ -57,9 +63,22 @@ const AppNavigator = () => {
               {title: ''}
             }
             />
-            {/* <Stack.Screen name={screensName.messager} component={Message} />
-            <Stack.Screen name={screensName.notifiactions} component={Notifications} /> */}
-            
+            {/* <Stack.Screen name={screensName.allAlerts} component={AllAlerts}
+            options ={{
+              headerShown: false,
+            }}
+             />
+            <Stack.Screen name={screensName.mentionAlerts} component={MentionAlerts}
+            options ={{
+              headerShown: false,
+            }}
+             />
+            <Stack.Screen name={screensName.followAlerts} component={FollowAlert}
+            options ={{
+              headerShown: false,
+            }}
+             /> */}
+           
         </Stack.Navigator>
   )
 }
