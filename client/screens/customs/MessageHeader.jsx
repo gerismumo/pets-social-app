@@ -1,7 +1,9 @@
 import React from 'react'
-import { View, StyleSheet, TextInput } from 'react-native'
+import { View, StyleSheet, TextInput, TouchableHighlight, Text } from 'react-native'
 import Profile from './Profile'
 import colors from '../../services/colors'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import {faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
 
 const MessageHeader = () => {
   return (
@@ -12,6 +14,9 @@ const MessageHeader = () => {
             placeholder='search messages'
             style={styles.searchBar}
             />
+            <TouchableHighlight style={styles.controlBtn}>
+                <FontAwesomeIcon icon={faMagnifyingGlass} />
+            </TouchableHighlight>
         </View>
     </View>
   )
@@ -31,14 +36,23 @@ const styles = StyleSheet.create({
     details: {
         flex: 1, 
         marginLeft: 10, 
+        flexDirection: 'row',
+        width: '100%',
+        borderWidth: 1,
+        borderColor: colors.black,
+        borderRadius: 6,
     },
     searchBar:{
-        borderColor: colors.black,
-        borderWidth: 1,
-        borderRadius: 6,
         paddingVertical: 3,
         paddingHorizontal: 5,
         fontSize: 17,
+        width: '85%',
+    },
+    controlBtn: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '15%'
     }
 })
 
