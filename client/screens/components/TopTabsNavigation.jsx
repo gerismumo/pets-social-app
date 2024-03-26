@@ -6,6 +6,7 @@ import MentionAlerts from './Alerts/MentionAlerts';
 import FollowAlert from './Alerts/FollowAlert';
 import { TabBarItem } from 'react-native-tab-view';
 import colors from '../../services/colors';
+import { View, Text } from 'react-native';
 const Tab = createMaterialTopTabNavigator();
 
 const TopTabsNavigation = () => {
@@ -17,22 +18,28 @@ const TopTabsNavigation = () => {
       tabBarStyle: { backgroundColor: colors.white },
       tabBarActiveTintColor: colors.secondary,
       tabBarInactiveTintColor:colors.black,
-      tabBarIndicatorStyle: { backgroundColor: colors.white}
+      tabBarIndicatorStyle: { backgroundColor: colors.secondary},
+      tabBarIndicatorContainerStyle:  { backgroundColor: colors.white},
     }}
     >
         <Tab.Screen name={screensName.allAlerts} component={AllAlerts} 
         options={{
-          title: "All",
+          tabBarLabel: "All",
+          // tabBarBadge: () => (
+          //   <View >
+          //     <Text>6</Text>
+          //   </View>
+          // )
         }}
         />
         <Tab.Screen name={screensName.mentionAlerts} component={MentionAlerts} 
         options={{
-          title: "Mentions",
+          tabBarLabel: "Mentions",
         }}
         />
         <Tab.Screen name={screensName.followAlerts} component={FollowAlert}
          options={{
-          title: "Follow",
+          tabBarLabel: "Follow",
         }}
          />
     </Tab.Navigator>

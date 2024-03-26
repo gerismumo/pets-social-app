@@ -14,15 +14,7 @@ const HomeHeader = ({navigation}) => {
   return (
     <View style={styles.container}>
         <Profile />
-        {/* <TouchableHighlight 
-        onPress={() => navigation.navigate(screensName.profile)}
-        style={{ width: 40, height: 40, borderRadius: 25, overflow: 'hidden' }}>
-            <Image
-            source={require('../../assets/images/IMG_20220506_102409.jpg')}
-            style={{ width: '100%', height: '100%' }}
-            />
-        </TouchableHighlight> */}
-        <View>
+        <View style={styles.headerContent}>
             <Text style={styles.title}>{AppTitle}</Text>
         </View>
     </View>
@@ -40,17 +32,18 @@ const styles = StyleSheet.create({
         paddingVertical: 5,
         alignItems: 'center',
     },
-    title: {
-        fontSize: 25,
-        fontWeight: 'bold',
-        color: colors.primary,
-    },
-    notificationMessages: {
-        display: 'flex',
+    headerContent: {
+        flex: 1,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        gap: 50,
-    }
+        width: '100%',
+    },
+    title: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        color: colors.primary,
+    },
+    
 })
 export default HomeHeader
