@@ -11,7 +11,7 @@ const AlertsHeader = () => {
         <View style={styles.titleContainer}>
             <Text style={styles.titleText}>Alerts</Text>
         </View>
-        <View style={styles.alertNotifications}>
+        {/* <View style={styles.alertNotifications}>
             <TouchableHighlight
             underlayColor={colors.white}
             onPress={() => navigation.navigate(screensName.allAlerts)}
@@ -31,7 +31,7 @@ const AlertsHeader = () => {
             >
                 <Text style={styles.alertText}>Follows</Text>
             </TouchableHighlight>
-        </View>
+        </View> */}
     </View>
   )
 }

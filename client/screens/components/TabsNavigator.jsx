@@ -16,6 +16,7 @@ import { faBell } from '@fortawesome/free-regular-svg-icons';
 import Message from './Message';
 import MessageHeader from '../customs/MessageHeader';
 import AlertsHeader from '../customs/AlertsHeader';
+import TopTabsNavigation from './TopTabsNavigation';
 
 const CustomHeader = ({ title }) => {
     return (
@@ -86,14 +87,14 @@ const TabsNavigator = () => {
             }
         }}
         />
-        <Tab.Screen name={screensName.notifiactions} component={Trends} 
+        <Tab.Screen name={screensName.notifiactions} component={TopTabsNavigation} 
         options={{
             tabBarIcon: ({color, size, focused}) => (
                 <FontAwesomeIcon icon={faBell} size={iconSize} color={focused ? colors.black : colors.black}  />
             ),
-            header: () => {
-                return <AlertsHeader/>
-            }
+           header: () => {
+            return <AlertsHeader/>
+           }
         }}
         />
         <Tab.Screen name={screensName.messager} component={Message} 
