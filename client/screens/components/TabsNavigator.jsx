@@ -12,11 +12,12 @@ import TrendsHeader from '../customs/TrendsHeader';
 import HomeHeader from '../customs/HomeHeader';
 import { screensName } from '../AppNavigator';
 import { faBell } from '@fortawesome/free-regular-svg-icons';
-import Message from './Message';
 import MessageHeader from '../customs/MessageHeader';
 import AlertsHeader from '../customs/AlertsHeader';
 import TopTabsNavigation from './TopTabsNavigation';
-import DrawerTabs from './Tabs/DrawerTabs';
+import DrawerTabs from './Tabs/HomeDrawer';
+import MessageDrawer from './Tabs/MessageDrawer';
+import Message from './Message';
 
 const CustomHeader = ({ title }) => {
     return (

@@ -4,11 +4,10 @@ import { useNavigation } from '@react-navigation/native'
 import { screensName } from '../AppNavigator'
 
 
-const Profile = () => {
+const Profile = ({ openDrawer }) => {
     const navigation = useNavigation()
     const handleOpenDrawer = () => {
-      navigation.navigate( screensName.profile, { screen: screensName.home });
-      navigation.openDrawer();
+      openDrawer();
     };
   return (
     <TouchableHighlight 

@@ -12,7 +12,7 @@ import Notifications from './components/Notifications';
 import AllAlerts from './components/Alerts/AllAlerts';
 import MentionAlerts from './components/Alerts/MentionAlerts';
 import FollowAlert from './components/Alerts/FollowAlert';
-import DrawerTabs from './components/Tabs/DrawerTabs';
+import DrawerTabs from './components/Tabs/HomeDrawer';
 
 
 export const screensName = {

@@ -1,15 +1,12 @@
 import React from 'react'
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import ProfileScreen from '../ProfileScreen';
 import { screensName } from '../../AppNavigator';
-import Profile from '../../customs/Profile';
-import ProfileHeader from '../../customs/ProfileHeader';
 import HomeHeader from '../../customs/HomeHeader';
 import Home from '../Home';
 
 const Drawer = createDrawerNavigator();
 
-const DrawerTabs = () => {
+const HomeDrawer= () => {
   return (
     <Drawer.Navigator
     screenOptions={{
@@ -26,4 +23,4 @@ const DrawerTabs = () => {
   )
 }
 
-export default DrawerTabs
+export default HomeDrawer
