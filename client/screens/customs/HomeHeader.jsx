@@ -11,6 +11,7 @@ import Profile from './Profile';
 const HomeHeader = ({navigation}) => {
     const iconSize = 25;
     
+    
   return (
     <View style={styles.container}>
         <Profile />

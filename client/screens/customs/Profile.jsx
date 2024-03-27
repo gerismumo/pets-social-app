@@ -6,9 +6,13 @@ import { screensName } from '../AppNavigator'
 
 const Profile = () => {
     const navigation = useNavigation()
+    const handleOpenDrawer = () => {
+      navigation.navigate( screensName.profile, { screen: screensName.home });
+      navigation.openDrawer();
+    };
   return (
     <TouchableHighlight 
-    onPress={() => navigation.navigate(screensName.profile)}
+    onPress={handleOpenDrawer}
     style={{ width: 40, height: 40, borderRadius: 25, overflow: 'hidden' }}>
         <Image
         source={require('../../assets/images/IMG_20220506_102409.jpg')}

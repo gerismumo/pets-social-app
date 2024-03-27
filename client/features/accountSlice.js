@@ -7,10 +7,10 @@ import config from '../config';
 export const loginUser = createAsyncThunk('login/loginUser', 
 async(data, thunkApi) => {
     const url = `${config.backendUrl}/api/login`;
-   console.log(data);
+//    console.log(data);
     try{
         const response = await axios.post(url, data);
-        console.log(response.data)
+        console.log('response',response.data)
         // console.log('token thunk',thunkApi.getState().account.loginData.userToken);
         if(response.data.success) {
             await AsyncStorage.setItem('userToken', response.data.token);

@@ -3,7 +3,6 @@ import {createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from './Home';
 import Posts from './Posts';
 import Trends from './Trends';
-import Profile from './Profile';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import {faHouse, faMagnifyingGlass, faEnvelope} from "@fortawesome/free-solid-svg-icons";
 import colors from '../../services/colors';
@@ -17,6 +16,7 @@ import Message from './Message';
 import MessageHeader from '../customs/MessageHeader';
 import AlertsHeader from '../customs/AlertsHeader';
 import TopTabsNavigation from './TopTabsNavigation';
+import DrawerTabs from './Tabs/DrawerTabs';
 
 const CustomHeader = ({ title }) => {
     return (
@@ -58,16 +58,17 @@ const TabsNavigator = () => {
 
    
     >
-        <Tab.Screen name={screensName.home} component={Home} 
+        <Tab.Screen name={screensName.home} component={DrawerTabs} 
         options={{
             title: 'Home',
             tabBarIcon: ({ color, size, focused }) =>(
                 <FontAwesomeIcon icon={faHouse} size={iconSize} color={focused ? colors.black : colors.black} />
             ),
             tabBarAccessibilityLabel: 'Accessibility',
-            header: ({ navigation, route, options }) => {
-                return <HomeHeader navigation={navigation}/>
-              },
+            // header: ({ navigation, route, options }) => {
+            //     return <HomeHeader navigation={navigation}/>
+            //   },
+            headerShown: false,
         }}
         />
         <Tab.Screen name={screensName.posts} component={Posts}

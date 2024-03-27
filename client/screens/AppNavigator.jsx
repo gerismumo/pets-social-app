@@ -12,6 +12,7 @@ import Notifications from './components/Notifications';
 import AllAlerts from './components/Alerts/AllAlerts';
 import MentionAlerts from './components/Alerts/MentionAlerts';
 import FollowAlert from './components/Alerts/FollowAlert';
+import DrawerTabs from './components/Tabs/DrawerTabs';
 
 
 export const screensName = {
@@ -63,6 +64,11 @@ const AppNavigator = () => {
               {title: ''}
             }
             />
+            {/* <Stack.Screen name="drawer" component={DrawerTabs} 
+            options={{
+              headerShown: false,
+            }}
+            /> */}
             {/* <Stack.Screen name={screensName.allAlerts} component={AllAlerts}
             options ={{
               headerShown: false,

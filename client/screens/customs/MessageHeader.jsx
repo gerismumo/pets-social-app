@@ -11,8 +11,8 @@ const MessageHeader = () => {
         <Profile />
         <View style={styles.details}>
             <TextInput
-            placeholder='search messages'
-            style={styles.searchBar}
+                placeholder='search messages'
+                style={styles.searchBar}
             />
             <TouchableHighlight style={styles.controlBtn}>
                 <FontAwesomeIcon icon={faMagnifyingGlass} />
