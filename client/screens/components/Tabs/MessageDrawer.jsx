@@ -3,22 +3,26 @@ import { screensName } from '../../AppNavigator';
 import Message from '../Message';
 import MessageHeader from '../../customs/MessageHeader';
 import { Drawer } from './HomeDrawer';
+import CustomMessageDrawer from './CustomMessageDrawer';
+import { useNavigation } from '@react-navigation/native'
 
 
 
 
 const MessageDrawer = () => {
-   
+    const navigation = useNavigation()
     
   return (
     <Drawer.Navigator
+    drawerContent= {(props) => <CustomMessageDrawer  {...props} />}
     screenOptions={{
-        header: props => <MessageHeader{...props} />
+        header: props => <MessageHeader{...props} />,
+       
     }}
     >
         <Drawer.Screen name='message' component={Message} 
         options={{
-            drawerLabel: 'message drawers',
+            // drawerLabel: 'message drawers',
         }}
         />
     </Drawer.Navigator>

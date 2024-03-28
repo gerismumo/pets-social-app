@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native'
 import { screensName } from '../AppNavigator'
 
 
-const Profile = ({ openDrawer }) => {
+const Profile = () => {
     const navigation = useNavigation()
     const handleOpenDrawer = () => {
       navigation.openDrawer();
