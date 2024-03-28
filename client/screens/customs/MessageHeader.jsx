@@ -12,14 +12,14 @@ const MessageHeader = ({navigation}) => {
     // }
   return (
     <View style={styles.container}>
-         <TouchableHighlight 
-            // onPress={handleOpenDrawer}
+        <Profile />
+         {/* <TouchableHighlight 
             style={{ width: 40, height: 40, borderRadius: 25, overflow: 'hidden' }}>
                 <Image
                 source={require('../../assets/images/IMG_20220506_102409.jpg')}
                 style={{ width: '100%', height: '100%' }}
                 />
-            </TouchableHighlight>
+            </TouchableHighlight> */}
         <View style={styles.details}>
             <TextInput
                 placeholder='search messages'

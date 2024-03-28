@@ -3,8 +3,9 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { screensName } from '../../AppNavigator';
 import HomeHeader from '../../customs/HomeHeader';
 import Home from '../Home';
+import Message from '../Message';
 
-const Drawer = createDrawerNavigator();
+export const Drawer = createDrawerNavigator();
 
 const HomeDrawer= () => {
   return (
@@ -19,6 +20,7 @@ const HomeDrawer= () => {
             drawerLabel: 'mumo',
         }}
         />
+       
     </Drawer.Navigator>
   )
 }

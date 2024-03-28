@@ -99,14 +99,12 @@ const TabsNavigator = () => {
            }
         }}
         />
-        <Tab.Screen name={screensName.messager} component={Message} 
+        <Tab.Screen name={screensName.messager}  component={MessageDrawer}
         options={{
             tabBarIcon: ({color, size, focused}) => (
                 <FontAwesomeIcon icon={faEnvelope} size={iconSize} color={focused ? colors.black : colors.black}  />
             ),
-            header: () => {
-                return <MessageHeader/>
-            }
+            headerShown: false,
         }}
         />
     </Tab.Navigator>

@@ -7,7 +7,7 @@ import { screensName } from '../AppNavigator'
 const Profile = ({ openDrawer }) => {
     const navigation = useNavigation()
     const handleOpenDrawer = () => {
-      openDrawer();
+      navigation.openDrawer();
     };
   return (
     <TouchableHighlight 

@@ -1,26 +1,28 @@
-// import React from 'react'
-// import { screensName } from '../../AppNavigator';
-// import Message from '../Message';
-// import MessageHeader from '../../customs/MessageHeader';
-// const Drawer = createDrawerNavigator();
+import React from 'react'
+import { screensName } from '../../AppNavigator';
+import Message from '../Message';
+import MessageHeader from '../../customs/MessageHeader';
+import { Drawer } from './HomeDrawer';
 
 
-// const MessageDrawer = ({ navigation }) => {
+
+
+const MessageDrawer = () => {
+   
     
-//   return (
-//     <Drawer.Navigator
-//     screenOptions={{
-//         header: props => <MessageHeader{...props} />
-//     }}
-//     >
-//         <Drawer.Screen name='message' component={Message} 
-//         options={{
-//             headerTitle: "PetPals",
-//             drawerLabel: 'mumo',
-//         }}
-//         />
-//     </Drawer.Navigator>
-//   )
-// }
+  return (
+    <Drawer.Navigator
+    screenOptions={{
+        header: props => <MessageHeader{...props} />
+    }}
+    >
+        <Drawer.Screen name='message' component={Message} 
+        options={{
+            drawerLabel: 'message drawers',
+        }}
+        />
+    </Drawer.Navigator>
+  )
+}
 
-// export default MessageDrawer
+export default MessageDrawer
