@@ -14,6 +14,7 @@ import MentionAlerts from './components/Alerts/MentionAlerts';
 import FollowAlert from './components/Alerts/FollowAlert';
 import DrawerTabs from './components/Tabs/HomeDrawer';
 import ChatScreen from './components/message/ChatScreen';
+import ChatScreenHeader from './components/message/ChatScreenHeader';
 
 
 export const screensName = {
@@ -66,7 +67,12 @@ const AppNavigator = () => {
               {title: ''}
             }
             />
-            <Stack.Screen name={screensName.chatScreen} component={ChatScreen} />
+            <Stack.Screen name={screensName.chatScreen} component={ChatScreen}
+            options={{
+              header: (props) => <ChatScreenHeader {...props}/>,
+              headerShown: true,
+            }}
+             />
            
         </Stack.Navigator>
   )

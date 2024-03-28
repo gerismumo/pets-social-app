@@ -11,6 +11,7 @@ import AppNavigator from './screens/AppNavigator';
 import { NavigationContainer } from '@react-navigation/native';
 import TabsNavigator from './screens/components/TabsNavigator';
 import * as ScreenOrientation from 'expo-screen-orientation';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 
 
@@ -33,15 +34,15 @@ export default function App() {
   return (
     <NavigationContainer>
       <Provider store={store}>
-        <StatusBar
-        hidden={false}
-        animated={true}
-        backgroundColor={colors.white}
-        barStyle='dark-content'
-        />
-        {/* app screens */}
-        <AppNavigator/>
-    </Provider>
+          <StatusBar
+          hidden={false}
+          animated={true}
+          backgroundColor={colors.white}
+          barStyle='dark-content'
+          />
+          {/* app screens */}
+          <AppNavigator/>
+      </Provider>
     </NavigationContainer>
     );
 }
