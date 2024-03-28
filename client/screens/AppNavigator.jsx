@@ -7,12 +7,13 @@ import SignUpHeader from './customs/SignUpHeader';
 import ForgotPass from './accounts/ForgotPass';
 import TabsNavigator from './components/TabsNavigator';
 import Loader from './components/Loader';
-import Message from './components/Message';
+import Message from './components/message/Message';
 import Notifications from './components/Notifications';
 import AllAlerts from './components/Alerts/AllAlerts';
 import MentionAlerts from './components/Alerts/MentionAlerts';
 import FollowAlert from './components/Alerts/FollowAlert';
 import DrawerTabs from './components/Tabs/HomeDrawer';
+import ChatScreen from './components/message/ChatScreen';
 
 
 export const screensName = {
@@ -30,6 +31,7 @@ export const screensName = {
   allAlerts:'allAlerts',
   mentionAlerts:'mentionAlerts',
   followAlerts:'followAlerts',
+  chatScreen:'chatScreens',
 }
 
 
@@ -64,26 +66,7 @@ const AppNavigator = () => {
               {title: ''}
             }
             />
-            {/* <Stack.Screen name="drawer" component={DrawerTabs} 
-            options={{
-              headerShown: false,
-            }}
-            /> */}
-            {/* <Stack.Screen name={screensName.allAlerts} component={AllAlerts}
-            options ={{
-              headerShown: false,
-            }}
-             />
-            <Stack.Screen name={screensName.mentionAlerts} component={MentionAlerts}
-            options ={{
-              headerShown: false,
-            }}
-             />
-            <Stack.Screen name={screensName.followAlerts} component={FollowAlert}
-            options ={{
-              headerShown: false,
-            }}
-             /> */}
+            <Stack.Screen name={screensName.chatScreen} component={ChatScreen} />
            
         </Stack.Navigator>
   )

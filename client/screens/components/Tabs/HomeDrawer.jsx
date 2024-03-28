@@ -3,7 +3,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { screensName } from '../../AppNavigator';
 import HomeHeader from '../../customs/HomeHeader';
 import Home from '../Home';
-import Message from '../Message';
+import Message from '../message/Message';
 import CustomHomeDrawer from './CustomHomeDrawer';
 
 export const Drawer = createDrawerNavigator();

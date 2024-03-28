@@ -17,7 +17,7 @@ import AlertsHeader from '../customs/AlertsHeader';
 import TopTabsNavigation from './TopTabsNavigation';
 import DrawerTabs from './Tabs/HomeDrawer';
 import MessageDrawer from './Tabs/MessageDrawer';
-import Message from './Message';
+import Message from './message/Message';
 
 const CustomHeader = ({ title }) => {
     return (

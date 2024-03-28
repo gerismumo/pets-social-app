@@ -1,6 +1,6 @@
 import React from 'react'
 import { screensName } from '../../AppNavigator';
-import Message from '../Message';
+import Message from '../message/Message';
 import MessageHeader from '../../customs/MessageHeader';
 import { Drawer } from './HomeDrawer';
 import CustomMessageDrawer from './CustomMessageDrawer';
