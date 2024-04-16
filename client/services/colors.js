@@ -6,7 +6,8 @@ const colors = {
     black: '#000000',
     lighBlue: '#387ADF',
     darkBlue: '#0F4C81',
-    prePrimary: '#88E1F2'
+    prePrimary: '#88E1F2',
+    grey: 'grey',
 }
 
 export default colors;
