@@ -1,9 +1,9 @@
 
 
-import React, {useState, useEffect} from 'react';
+import React, { useEffect} from 'react';
 import { Provider } from 'react-redux';
 import store from './store';
-import { StatusBar, ActivityIndicator } from 'react-native';
+import { StatusBar, } from 'react-native';
 import colors from './services/colors';
 import AppNavigator from './screens/Tabs/AppNavigator';
 import { NavigationContainer } from '@react-navigation/native';
@@ -30,17 +30,17 @@ export default function App() {
  
   return (
     <NavigationContainer>
-      <Provider store={store}>
-          <StatusBar
-          hidden={false}
-          animated={true}
-          backgroundColor={colors.white}
-          barStyle='dark-content'
-          />
-          {/* app screens */}
-          <AppNavigator/>
-      </Provider>
-    </NavigationContainer>
+      <StatusBar
+        hidden={false}
+        animated={true}
+        backgroundColor={colors.black}
+        barStyle='light-content'
+      />
+        <Provider store={store}>
+          <AppNavigator />
+        </Provider>
+      </NavigationContainer>
     );
 }
+
 
