@@ -1,9 +1,8 @@
 import React from 'react'
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { screensName } from '../../AppNavigator';
-import HomeHeader from '../../customs/HomeHeader';
-import Home from '../Home';
-import Message from '../message/Message';
+import { screensName } from '../Tabs/AppNavigator';
+import HomeHeader from './HomeHeader';
+import Home from './Home';
 import CustomHomeDrawer from './CustomHomeDrawer';
 
 export const Drawer = createDrawerNavigator();

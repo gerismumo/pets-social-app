@@ -1,7 +1,7 @@
 import React from 'react'
 import { TouchableHighlight , Image, Text,View, StyleSheet} from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import { screensName } from '../AppNavigator'
+import { screensName } from '../Tabs/AppNavigator'
 import { AppTitle } from '../../services/appName'
 
 

@@ -1,9 +1,9 @@
 import React,{useState, useEffect} from 'react'
 import { View, Text, ActivityIndicator,  StyleSheet } from 'react-native';
-import Login from '../accounts/Login';
+import Login from '../auth/login/Login';
 import { AppTitle } from '../../services/appName';
 import colors from '../../services/colors';
-import { main, screensName } from '../AppNavigator';
+import { main, screensName } from '../Tabs/AppNavigator';
 import { useSelector } from 'react-redux';
 
 

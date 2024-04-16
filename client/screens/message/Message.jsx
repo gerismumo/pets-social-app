@@ -1,23 +1,23 @@
 import React from 'react'
 import { Text, View ,Image, StyleSheet} from 'react-native'
 import { TouchableHighlight } from 'react-native-gesture-handler'
-import colors from '../../../services/colors'
+import colors from '../../services/colors'
 import { useNavigation } from '@react-navigation/native'
-import { screensName } from '../../AppNavigator'
+import { screensName } from '../Tabs/AppNavigator'
 
 const Message = () => {
   const peopleChats= [
     {
       name: 'John',
-      image: require('../../../assets/images/IMG_20220506_102409.jpg')
+      image: require('../../assets/images/IMG_20220506_102409.jpg')
     },
     {
       name: 'Doe',
-      image: require('../../../assets/images/IMG_20220506_102409.jpg')
+      image: require('../../assets/images/IMG_20220506_102409.jpg')
     },
     {
       name: 'Gerald',
-      image: require('../../../assets/images/IMG_20220506_102409.jpg')
+      image: require('../../assets/images/IMG_20220506_102409.jpg')
     },
 ]
 

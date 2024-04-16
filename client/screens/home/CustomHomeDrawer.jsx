@@ -1,6 +1,6 @@
 import React from 'react'
 import {View, Text, TouchableOpacity} from 'react-native'
-import Profile from '../../customs/Profile'
+import Profile from '../profile/Profile'
 import { ScrollView } from 'react-native-gesture-handler'
 
 const CustomHomeDrawer = ({ navigation }) => {

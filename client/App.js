@@ -1,17 +1,14 @@
 
-import { StyleSheet, Text, View } from 'react-native';
-import Loader from './screens/components/Loader';
-import Login from './screens/accounts/Login';
+
 import React, {useState, useEffect} from 'react';
 import { Provider } from 'react-redux';
 import store from './store';
 import { StatusBar, ActivityIndicator } from 'react-native';
 import colors from './services/colors';
-import AppNavigator from './screens/AppNavigator';
+import AppNavigator from './screens/Tabs/AppNavigator';
 import { NavigationContainer } from '@react-navigation/native';
-import TabsNavigator from './screens/components/TabsNavigator';
 import * as ScreenOrientation from 'expo-screen-orientation';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
+
 
 
 

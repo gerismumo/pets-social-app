@@ -1,9 +1,9 @@
 import React from 'react'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { screensName } from '../AppNavigator';
-import AllAlerts from './Alerts/AllAlerts';
-import MentionAlerts from './Alerts/MentionAlerts';
-import FollowAlert from './Alerts/FollowAlert';
+import { screensName } from './AppNavigator';
+import AllAlerts from '../Alerts/AllAlerts';
+import MentionAlerts from '../Alerts/MentionAlerts';
+import FollowAlert from '../Alerts/FollowAlert';
 import { TabBarItem } from 'react-native-tab-view';
 import colors from '../../services/colors';
 import { View, Text } from 'react-native';

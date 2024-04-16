@@ -1,7 +1,6 @@
 import React from 'react'
 import { View, Text, TouchableHighlight , StyleSheet} from 'react-native'
 import colors from '../../services/colors'
-import { screensName } from '../AppNavigator'
 import { useNavigation } from '@react-navigation/native'
 
 const AlertsHeader = () => {

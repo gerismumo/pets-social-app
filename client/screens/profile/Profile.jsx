@@ -1,7 +1,7 @@
 import React from 'react'
 import { TouchableHighlight , Image} from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import { screensName } from '../AppNavigator'
+import { screensName } from '../Tabs/AppNavigator'
 
 
 const Profile = () => {

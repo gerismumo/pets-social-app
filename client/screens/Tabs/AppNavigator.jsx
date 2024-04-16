@@ -1,20 +1,17 @@
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Login from './accounts/Login';
-import SignUp from './accounts/SignUp';
-import { Header } from 'react-native/Libraries/NewAppScreen';
-import SignUpHeader from './customs/SignUpHeader';
-import ForgotPass from './accounts/ForgotPass';
-import TabsNavigator from './components/TabsNavigator';
-import Loader from './components/Loader';
-import Message from './components/message/Message';
-import Notifications from './components/Notifications';
-import AllAlerts from './components/Alerts/AllAlerts';
-import MentionAlerts from './components/Alerts/MentionAlerts';
-import FollowAlert from './components/Alerts/FollowAlert';
-import DrawerTabs from './components/Tabs/HomeDrawer';
-import ChatScreen from './components/message/ChatScreen';
-import ChatScreenHeader from './components/message/ChatScreenHeader';
+import Login from '../auth/login/Login';
+import SignUp from '../auth/signup/SignUp';
+
+import SignUpHeader from '../auth/signup/SignUpHeader';
+import ForgotPass from '../auth/ForgotPass';
+
+import Loader from '../loader/Loader';
+
+import TabsNavigator from './TabsNavigator';
+import chatScreen from '../message/ChatScreen'
+
+
 
 
 export const screensName = {
@@ -67,7 +64,7 @@ const AppNavigator = () => {
               {title: ''}
             }
             />
-            <Stack.Screen name={screensName.chatScreen} component={ChatScreen}
+            <Stack.Screen name={screensName.chatScreen} component={chatScreen}
             options={{
               header: (props) => <ChatScreenHeader {...props}/>,
               headerShown: true,

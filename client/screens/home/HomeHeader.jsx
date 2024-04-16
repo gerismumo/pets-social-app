@@ -5,8 +5,8 @@ import colors from '../../services/colors'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import {faComment} from "@fortawesome/free-solid-svg-icons";
 import { faBell } from '@fortawesome/free-regular-svg-icons';
-import { notification, screensName } from '../AppNavigator';
-import Profile from './Profile';
+import { notification, screensName } from '../Tabs/AppNavigator';
+import Profile from '../profile/Profile';
 
 const HomeHeader = ({navigation}) => {
     const iconSize = 25;

@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, StyleSheet, TextInput, TouchableHighlight, Text, Image } from 'react-native'
-import Profile from './Profile'
+import Profile from '../profile/Profile'
 import colors from '../../services/colors'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import {faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";

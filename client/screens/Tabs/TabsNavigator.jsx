@@ -1,23 +1,23 @@
 import React from 'react';
 import {createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Home from './Home';
-import Posts from './Posts';
-import Trends from './Trends';
+import Home from '../home/Home';
+import Posts from '../posts/Posts';
+import Trends from '../trends/Trends';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import {faHouse, faMagnifyingGlass, faEnvelope} from "@fortawesome/free-solid-svg-icons";
 import colors from '../../services/colors';
 import {faSquarePlus} from '@fortawesome/free-regular-svg-icons';
 import {Image, View, Text} from 'react-native'
-import TrendsHeader from '../customs/TrendsHeader';
-import HomeHeader from '../customs/HomeHeader';
-import { screensName } from '../AppNavigator';
+import TrendsHeader from '../trends/TrendsHeader';
+import HomeHeader from '../home/HomeHeader';
+import { screensName } from './AppNavigator';
 import { faBell } from '@fortawesome/free-regular-svg-icons';
-import MessageHeader from '../customs/MessageHeader';
-import AlertsHeader from '../customs/AlertsHeader';
+import MessageHeader from '../message/MessageHeader';
+import AlertsHeader from '../Alerts/AlertsHeader';
 import TopTabsNavigation from './TopTabsNavigation';
-import DrawerTabs from './Tabs/HomeDrawer';
-import MessageDrawer from './Tabs/MessageDrawer';
-import Message from './message/Message';
+import DrawerTabs from '../home/HomeDrawer';
+import MessageDrawer from '../message/MessageDrawer';
+import Message from '../message/Message';
 
 const CustomHeader = ({ title }) => {
     return (

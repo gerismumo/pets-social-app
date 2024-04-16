@@ -1,8 +1,8 @@
 import React from 'react'
-import { screensName } from '../../AppNavigator';
-import Message from '../message/Message';
-import MessageHeader from '../../customs/MessageHeader';
-import { Drawer } from './HomeDrawer';
+import { screensName } from '../Tabs/AppNavigator';
+import Message from './Message';
+import MessageHeader from './MessageHeader';
+import { Drawer } from '../home/HomeDrawer';
 import CustomMessageDrawer from './CustomMessageDrawer';
 import { useNavigation } from '@react-navigation/native'
 

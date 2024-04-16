@@ -1,29 +1,27 @@
 import React, {useState} from 'react'
 import { View, Text, StyleSheet, SafeAreaView, TextInput, Button, TouchableHighlight,TouchableOpacity, Image } from 'react-native';
 import Checkbox from 'expo-checkbox';
-import colors from '../../services/colors';
-import { loginUser } from '../../features/accountSlice';
-import { screensName } from '../AppNavigator';
-import { useDispatch, useSelector } from 'react-redux';
-import { contentList } from '../../features/contentSlice';
+import colors from '../../../services/colors';
+import { useDispatch } from 'react-redux';
+import { SignUpUser } from '../../../features/accountSlice';
 
-
-const Login = ({navigation}) => {
+const SignUp = ({navigation}) => {
     const dispatch = useDispatch();
     const [isChecked, setChecked] = useState(false);
     const [userDetail, setUserDetail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
 
-    //states
-    const loginStates = useSelector((state) => state.account);
-    // console.log('loginStates',loginStates)
-    const contentStates = useSelector((state) => state.content);
-  
-  
-    const handleSubmitLogin = async () => {
-        if(userDetail === '' || password === '') {
+
+    const handleSubmitData = () => {
+        if(userDetail === '' || password === '' || confirmPassword === '') {
            return setError('fill all the details');
+        }
+
+        if(password!== confirmPassword) {
+            return setPasswordError('passwords do not match');
         }
        
 
@@ -31,21 +29,8 @@ const Login = ({navigation}) => {
             userDetail,
             password
         }
-        dispatch(loginUser(data));
-        dispatch(contentList());
-        console.log('contentStates',contentStates);
-        if(contentStates.success) { 
-          navigation.navigate(screensName.main);
-        }
 
-        // navigation.navigate(screensName.main);
-
-        // if(loginStates.loginData.authentication) {
-        //     console.log('use is authenticated')
-        //     navigation.navigate(screensName.main);
-        // }else {
-        //     console.log('use is not authenticated')
-        // }
+        dispatch(SignUpUser(data));
 
     }
 
@@ -58,7 +43,7 @@ const Login = ({navigation}) => {
                 </View>
                 <View style={styles.loginForm}>
                     <View style={styles.formHeading}>
-                        <Text style={styles.formHeadingText}>Login to your Account</Text>
+                        <Text style={styles.formHeadingText}>Create your Account</Text>
                     </View>
                     {error !== '' && (
                         <View style={styles.error}>
@@ -89,46 +74,56 @@ const Login = ({navigation}) => {
                             style={styles.input}
                             placeholder='password'
                             />
-                        </View>
-                        <View style={styles.forgot}>
-                            <TouchableHighlight
-                             onPress={() => navigation.navigate('forgotPassword')}
-                             underlayColor={colors.white}
-                             >
-                                <Text style={styles.forgotText}>Forgot password?</Text>
-                            </TouchableHighlight>
+                            <View style={styles.confirmPass}>
+                                {passwordError !== '' && (
+                                     <Text style={styles.errorText}>{passwordError}</Text>
+                                )}
+                                <TextInput 
+                                onChangeText={text => {
+                                    setConfirmPassword(text);
+                                    if(text !==  password) {
+                                        setPasswordError('password should match');
+                                    }else {
+                                    setPasswordError('')
+                                    }
+                                }}
+                                value={confirmPassword}
+                                style={[styles.input, passwordError!== '' ? styles.errorBorder: null]}
+                                placeholder='Confirm password'
+                                />
+                            </View>
+                            
                         </View>
                         <View>
                             <TouchableHighlight  style={styles.loginBtn}
                             underlayColor={colors.secondary}
-                            onPress={() => handleSubmitLogin()}
+                            onPress={() => handleSubmitData()}
                             >
-                                <Text style={styles.loginText}>Sign in</Text>
+                                <Text style={styles.loginText}>Sign up</Text>
                             </TouchableHighlight>
                         </View>
                     </View>
                 </View>
                 <View styles={styles.middleText}>
-                    <Text style={styles.orText}>Or sign in with</Text>
+                    <Text style={styles.orText}>Or</Text>
                 </View>
                 <View style={styles.otherLogin}>
                     <TouchableHighlight style={styles.signGoogle}>
                         <View style={styles.signUpBtn}>
                             <Image
                             style={{ width: 20, height: 20 }}
-                            source={require('../../assets/images/google.png')}
+                            source={require('../../../assets/images/google.png')}
                             />
-                            <Text style={styles.signGText}>Sign in with Google</Text>
+                            <Text style={styles.signGText}>Sign up with Google</Text>
                         </View>
                     </TouchableHighlight>
                 </View>
-                <View style={styles.signUp}>
+                {/* <View style={styles.signUp}>
                     <Text style={styles.signUpText}>Don't have an Account? </Text>
                     <TouchableHighlight  
-                    underlayColor={colors.white}
-                    onPress={() => navigation.navigate(screensName.signUp)}
+                    onPress={() => navigation.navigate('SignUp')}
                     ><Text style={styles.signUpLink}>Sign up</Text></TouchableHighlight>
-                </View>
+                </View> */}
             </View>
 
         </View>
@@ -140,7 +135,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         width: '100%',
-        backgroundColor: '#fff',
+        backgroundColor: colors.white,
         justifyContent: 'center',
         padding: 10,
     },
@@ -201,14 +196,13 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         fontSize: 20,
       },
-      forgot: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 10,
+      errorBorder: {
+        borderColor: 'red',
       },
-      forgotText: {
-        fontSize: 18,
-        color: colors.lighBlue,
+      confirmPass: {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 10,
       },
       loginBtn: {
         marginTop: 10,
@@ -266,4 +260,4 @@ const styles = StyleSheet.create({
       }
 })
 
-export default Login
+export default SignUp

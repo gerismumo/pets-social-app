@@ -1,9 +1,9 @@
 import React from 'react';
 import { TouchableHighlight, View, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import colors from '../../services/colors';
-import icons from '../../services/icons';
-import { screensName } from '../AppNavigator';
+import colors from '../../../services/colors';
+import icons from '../../../services/icons';
+import { screensName } from '../../Tabs/AppNavigator';
 
 
 const SignUpHeader = () => {
