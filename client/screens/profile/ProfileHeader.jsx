@@ -1,8 +1,7 @@
 import React from 'react'
 import { TouchableHighlight , Image, Text,View, StyleSheet} from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import { screensName } from '../Tabs/AppNavigator'
-import { AppTitle } from '../../services/appName'
+
 
 
 const ProfileHeader = () => {
@@ -10,7 +9,6 @@ const ProfileHeader = () => {
   return (
     <View >
          <TouchableHighlight 
-        // onPress={() => navigation.navigate("drawer")}
         style={{ width: 40, height: 40, borderRadius: 25, overflow: 'hidden' }}>
             <Image
             source={require('../../assets/images/IMG_20220506_102409.jpg')}
@@ -18,7 +16,6 @@ const ProfileHeader = () => {
             />
         </TouchableHighlight>
         <View>
-            <Text>{AppTitle}</Text>
         </View>
     </View>
    
