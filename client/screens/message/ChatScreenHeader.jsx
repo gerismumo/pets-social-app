@@ -1,6 +1,6 @@
 import React from 'react'
 import {View,Text, TouchableHighlight, StyleSheet } from 'react-native'
-import colors from '../../../services/colors'
+import colors from '../../services/colors'
 
 
 const ChatScreenHeader = ({navigation, route}) => {

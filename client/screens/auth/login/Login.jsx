@@ -6,6 +6,7 @@ import { loginUser } from '../../../features/accountSlice';
 import { screensName } from '../../Tabs/AppNavigator';
 import { useDispatch, useSelector } from 'react-redux';
 import { contentList } from '../../../features/contentSlice';
+import { AppTitle } from '../../../services/appName';
 
 
 const Login = ({navigation}) => {
@@ -54,7 +55,7 @@ const Login = ({navigation}) => {
         <View style={styles.container}>
             <View style={styles.login}>
                 <View style={styles.frontText}>
-                    <Text style={styles.wel}>PetPals</Text>
+                    <Text style={styles.wel}>{AppTitle}</Text>
                 </View>
                 <View style={styles.loginForm}>
                     <View style={styles.formHeading}>

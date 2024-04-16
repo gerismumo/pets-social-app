@@ -10,6 +10,8 @@ import Loader from '../loader/Loader';
 
 import TabsNavigator from './TabsNavigator';
 import chatScreen from '../message/ChatScreen'
+import ChatScreenHeader from '../message/ChatScreenHeader';
+import ViewMore from '../postData/ViewMore';
 
 
 
@@ -30,6 +32,7 @@ export const screensName = {
   mentionAlerts:'mentionAlerts',
   followAlerts:'followAlerts',
   chatScreen:'chatScreens',
+  viewPostData: 'viewpost',
 }
 
 
@@ -70,6 +73,7 @@ const AppNavigator = () => {
               headerShown: true,
             }}
              />
+             <Stack.Screen name={screensName.viewPostData} component={ViewMore} />
            
         </Stack.Navigator>
   )

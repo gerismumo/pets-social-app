@@ -4,11 +4,12 @@ import colors from '../../services/colors'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import {faAngleRight, faAngleLeft, faHeart as faHeartSolid} from "@fortawesome/free-solid-svg-icons"
 import {faHeart} from "@fortawesome/free-regular-svg-icons";
+import { useNavigation } from '@react-navigation/native'
+import { screensName } from '../Tabs/AppNavigator';
 
 
-
-
-const VehicleCard = (car, index) => {
+const VehicleCard = (car) => {
+    const navigation = useNavigation();
     //usestates
     const [currentImagePosition, setCurrentPosition] = useState(0);
     const [likePost, setLikePost] = useState(false);
@@ -34,6 +35,9 @@ const VehicleCard = (car, index) => {
             setLikePost(true);
         }
     }
+
+    
+
   return (
     <View style={styles.container} >
         <TouchableWithoutFeedback 
@@ -76,7 +80,9 @@ const VehicleCard = (car, index) => {
                 <Text style={styles.postPriceText}>Ksh {car.price}</Text>
             </View>
             <View>
-                <TouchableWithoutFeedback>
+                <TouchableWithoutFeedback
+                onPress={() => navigation.navigate(screensName.viewPostData, car)}
+                >
                     <View style={styles.viewBtn}>
                         <Text style={styles.viewText}>View More</Text>
                     </View>

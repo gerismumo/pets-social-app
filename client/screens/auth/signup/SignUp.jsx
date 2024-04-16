@@ -4,6 +4,7 @@ import Checkbox from 'expo-checkbox';
 import colors from '../../../services/colors';
 import { useDispatch } from 'react-redux';
 import { SignUpUser } from '../../../features/accountSlice';
+import { AppTitle } from '../../../services/appName';
 
 const SignUp = ({navigation}) => {
     const dispatch = useDispatch();
@@ -39,7 +40,7 @@ const SignUp = ({navigation}) => {
         <View style={styles.container}>
             <View style={styles.login}>
                 <View style={styles.frontText}>
-                    <Text style={styles.wel}>PetPals</Text>
+                    <Text style={styles.wel}>{AppTitle}</Text>
                 </View>
                 <View style={styles.loginForm}>
                     <View style={styles.formHeading}>
