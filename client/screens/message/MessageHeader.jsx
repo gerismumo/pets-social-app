@@ -12,7 +12,7 @@ const MessageHeader = ({navigation}) => {
     // }
   return (
     <View style={styles.container}>
-        <Profile />
+        <Profile/>
          {/* <TouchableHighlight 
             style={{ width: 40, height: 40, borderRadius: 25, overflow: 'hidden' }}>
                 <Image
