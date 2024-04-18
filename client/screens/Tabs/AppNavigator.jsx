@@ -12,6 +12,7 @@ import TabsNavigator from './TabsNavigator';
 import chatScreen from '../message/ChatScreen'
 import ChatScreenHeader from '../message/ChatScreenHeader';
 import ViewMore from '../postData/ViewMore';
+import ViewMoreHeader from '../postData/ViewMoreHeader';
 
 
 
@@ -73,7 +74,12 @@ const AppNavigator = () => {
               headerShown: true,
             }}
              />
-             <Stack.Screen name={screensName.viewPostData} component={ViewMore} />
+             <Stack.Screen name={screensName.viewPostData} component={ViewMore} 
+             options={{
+              header: (props) => <ViewMoreHeader {...props} />,
+              headerShown: true,
+             }}
+             />
            
         </Stack.Navigator>
   )
