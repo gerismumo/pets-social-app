@@ -17,18 +17,19 @@ const Loader = ({navigation}) => {
   useEffect(() => {
     setTimeout(() => {
       setLoaderVisible(false);
-      if(contentStates.success){
-        navigation.navigate(screensName.main);
-      }else {
-        navigation.navigate(screensName.login);
-      }
+      // if(contentStates.success){
+      //   navigation.navigate(screensName.main);
+      // }else {
+      //   navigation.navigate(screensName.login);
+      // }
+      navigation.navigate(screensName.main);
     }, 2000);
   }, []);
   return (
     <>
       <View style={styles.container}>
           <Text style={styles.title}>{AppTitle}</Text>
-          <ActivityIndicator size='large' color="#000000" className='text-[40px]'/>
+          <ActivityIndicator size='30' color={colors.secondary} />
       </View>
     </>
   )

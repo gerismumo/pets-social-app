@@ -47,10 +47,9 @@ const VehicleCard = (car) => {
                 {likePost && likedPostId === car.index ? (
                     <FontAwesomeIcon icon={faHeartSolid} size={25} color='red' />
                 ): (
-                    <FontAwesomeIcon icon={faHeart} size={25} color={colors.primary}  />
+                    <FontAwesomeIcon icon={faHeart} size={25} color={colors.preSecondary}  />
                 )}
             </View>
-            
         </TouchableWithoutFeedback>
         <View style={styles.imageCard}>
             <TouchableWithoutFeedback
@@ -165,7 +164,7 @@ const styles = StyleSheet.create({
     },
     viewBtn: {
         width: '100%',
-        backgroundColor: colors.primary,
+        backgroundColor: '#4A55A2',
         alignItems: 'center',
         paddingVertical: 5,
         borderRadius: 6,
